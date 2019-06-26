@@ -1,0 +1,12 @@
+#!/bin/env/python python3
+
+def isPalindrome(string):
+    reverse_string = string[::-1]
+    if string == reverse_string : 
+        return True
+    else :
+        return False
+
+print(isPalindrome("I am testing"))
+print(isPalindrome("radar"))
+print(isPalindrome("LAal"))

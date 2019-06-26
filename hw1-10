@@ -1,0 +1,17 @@
+#!/bin/env/python python3
+
+def charFreq(string):
+    char_counter = {}
+    print(string)
+    for i in string : 
+        if i in char_counter :
+           char_counter[i] = char_counter[i] + 1
+        else :
+           char_counter[str(i)] = 1 
+    print(char_counter)
+   
+
+text = "ababbabxb"
+charFreq(text) 
+text = "abbabcbdbabdbdbabababcbcbab"
+charFreq(text) 

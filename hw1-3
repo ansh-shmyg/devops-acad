@@ -1,0 +1,6 @@
+#!/bin/env/python python3
+
+def reverse(string):
+    return string[::-1]
+
+print(reverse("I am testing"))

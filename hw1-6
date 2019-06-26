@@ -1,0 +1,26 @@
+#!/bin/env/python python3
+
+def caesarCipher(string, shift=2):
+    text_to_encypt_lower = string.lower()
+    eng_alphabet=['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+#    shifted_eng_alphabet = eng_alphabet[(len(eng_alphabet) - shift):] + eng_alphabet[:(len(eng_alphabet) - shift)]
+    shifted_eng_alphabet = eng_alphabet[shift:] + eng_alphabet[:shift]
+    cipher_text = ""
+    for symbol in text_to_encypt_lower:
+         if symbol == " ":
+             cipher_text += " "
+         for i in range(len(eng_alphabet)):
+             if symbol == eng_alphabet[i]:
+                 cipher_text += shifted_eng_alphabet[i]
+        
+    print(text_to_encypt_lower)
+    print(cipher_text)
+
+
+text_to_encypt="Some text"
+print("input text:")
+print(text_to_encypt)
+caesarCipher(text_to_encypt, 1) 
+caesarCipher(text_to_encypt, 2) 
+caesarCipher(text_to_encypt, 3) 
+caesarCipher(text_to_encypt, 4) 

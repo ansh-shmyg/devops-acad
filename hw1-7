@@ -1,0 +1,22 @@
+#!/bin/env/python python3
+
+def diagonalReverse(list):
+    def print_2x_list(list2): 
+        for i in list2 : 
+            print(i)
+    print("input massiv")
+    print_2x_list(list)
+    list_reversed = [[0 for x in range(len(list))] for x in range(len(list))]
+    for i in range(len(list)):
+        for j in range(len(list[i])):
+            list_reversed[i][j] = list[j][i]
+
+    print("reversed massiv")
+    print_2x_list(list_reversed)
+    return list_reversed
+            
+   
+some_list = [[1,2,3],[4,5,6],[7,8,9]]
+diagonalReverse(some_list)
+some_list = [[1,2,3,4],[5,6,7,8],[9,11,12,13],[14,15,16,17]]
+diagonalReverse(some_list)
