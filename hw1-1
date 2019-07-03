@@ -1,8 +1,0 @@
-#!/bin/env/python python3
-
-def print_function(string):
-    print(string)
-   
-
-
-print_function("Some text") 
