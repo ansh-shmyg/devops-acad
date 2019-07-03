@@ -12,13 +12,22 @@ class Employee(object):
         print("My name is " + self.first_name + " " + self.second_name)
 
     def show_finance(self):
-        if self.experiance > 2:
-            final_salary = self.salary + 200
-        elif self.experiance > 5:
+        if self.experiance > 5:
             final_salary = (self.salary * 1.2) + 500
+        elif self.experiance > 2:
+            final_salary = self.salary + 200
         else:
             final_salary = self.salary
-        return self.first_name + " " + self.second_name + " : got salary : " + str(final_salary)
+        return final_salary
+    
+#    def __repr__(self):
+# add manager
+#        return str(self.first_name) + " " + str(self.second_name) + ", manager: " + ", experiance: " + str(self.experiance)  
+
+    def __str__(self):
+# add manager
+        return str(self.first_name) + " " + str(self.second_name) + ", manager: " + ", experiance: " + str(self.experiance)  
+
 
 class Developer(Employee):
     def __init__(self, first_name, second_name, salary, experiance, higher_manager=None):
@@ -35,6 +44,10 @@ class Designer(Employee):
         self.eff_koef = float(eff_koef)
         self.higher_manager = higher_manager
 
+    def show_finance(self):
+        final_salary = super().show_finance()
+        return final_salary * self.eff_koef
+        
 
 class Manager(Employee):
     def __init__(self, first_name, second_name, salary, experiance, higher_manager=None, team_members=None):
@@ -51,6 +64,22 @@ class Manager(Employee):
     def show_team_members(self):
         return self.team_members
 
+    def show_finance(self):
+        final_salary = super().show_finance()
+        team_members_num = len(self.team_members)
+        team_devs_members_num = 0 
+        for i in self.team_members : 
+             if type(i).__name__ == "Developer":
+                 team_devs_members_num += 1    
+        if team_devs_members_num > ( team_members_num / 2) : 
+             final_salary = final_salary * 1.1
+             return final_salary
+        if team_members_num > 10 :
+             final_salary += 300
+        elif team_members_num > 5 :
+             final_salary += 200
+        return final_salary
+
 
 class Department(object):
     def __init__(self, managers_list):
@@ -61,13 +90,11 @@ class Department(object):
 
     def give_salary(self):
         for i in self.managers_list:
-            print(i.show_finance())
+            print(str(i.first_name) + " " + str(i.second_name) + " : got salary : " + str(i.show_finance()))
             for j in i.show_team_members():
-                print(j.show_finance())
+                print(str(j.first_name) + " " + str(j.second_name) + " : got salary : " + str(j.show_finance()))
 
 
-#   pass
-#    def show_managers_
 
 
 worker1 = Employee("Adriano", "Celentano", 900, 5)
@@ -93,9 +120,15 @@ manager2 = Manager("Tim", "Collins", 989, 6)
 #print("manager2-1")
 #manager2.show_team_members()
 manager2.add_team_member(worker3)
+manager2.add_team_member(worker5)
 #print("manager2-2")
 #manager2.show_team_members()
 department1 = Department([manager1,manager2])
 department1.show_managers_list()
 department1.give_salary()
 # print(manager1)
+print("print")
+#print(dir(worker2))
+print(worker2)
+print("self")
+worker2
