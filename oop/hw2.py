@@ -56,6 +56,7 @@ class Manager(Employee):
             self.team_members = []
 
     def add_team_member(self, team_member_object):
+        team_member_object.higher_manager = self
         self.team_members.append(team_member_object)
 
     def show_team_members(self):
