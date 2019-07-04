@@ -64,7 +64,7 @@ class Designer(Employee):
         return final_salary * self.eff_koef
         
 
-class Manager(Employee,Error):
+class Manager(Employee):
     def __init__(self, first_name, second_name, salary, experiance, higher_manager=None, team_members=None):
         super().__init__(first_name, second_name, salary, experiance, higher_manager)
         if team_members is not None:
@@ -76,7 +76,7 @@ class Manager(Employee,Error):
         team_member_object.higher_manager = self
         self.team_members.append(team_member_object)
     
-    def add_to_team(self, array_of_members=False):
+    def add_to_team(self, array_of_members=None):
         if not array_of_members: 
             raise NotEmployeeException()
         for i in array_of_members:
@@ -107,7 +107,7 @@ class Manager(Employee,Error):
         return final_salary
 
 
-class Department(Error):
+class Department(object):
     def __init__(self, managers_list):
         self.managers_list = managers_list
 
@@ -192,7 +192,7 @@ department1 = Department([manager1,manager2,manager3])
 department2 = Department([manager1])
 department2.give_salary()
 #department2.add_to_team_members(manager1,[worker3,worker4])
-#department2.add_to_team_members(manager1,[])
+department2.add_to_team_members(manager1,[])
 department2.add_to_team_members(manager1,[worker3,worker4,manager4])
 department2.give_salary()
 print(worker1)
