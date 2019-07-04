@@ -137,6 +137,7 @@ class Department(Error):
 #manager3 = Manager("Virktor", "Piatochnik3", 1000, 2, manager1)
 #manager4 = Manager("Virktor", "Piatochnik4", 2000, 3)
 #
+#print(manager1.show_finance())
 #worker1 = Developer("Steve", "Wozniak1", 900 , 2, manager1) 
 #worker2 = Developer("Steve", "Wozniak2", 1000 , 3) 
 #worker3 = Developer("Steve", "Wozniak3", 1200 , 4) 
