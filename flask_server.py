@@ -5,7 +5,7 @@ import json
 
 app = Flask(__name__)
 
-list_of_datas = ['dota']
+list_of_datas = []
 
 @app.route("/")
 def hello():
@@ -20,7 +20,7 @@ def post_json_data():
     json_string = json.loads(income_data)
 #    print(json_string)
     list_of_datas.append(json_string)
-    string_of_datas = '; '.join(str(i) for i in list_of_datas)
+    string_of_datas = ';'.join(str(i) for i in list_of_datas)
     return render_template( 'genlist.html', name='api', list=string_of_datas)
 
 
